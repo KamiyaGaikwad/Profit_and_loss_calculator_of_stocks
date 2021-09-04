@@ -1,25 +1,41 @@
 var intialPrice = document.querySelector("#intial-price");
 var Quantity = document.querySelector("#quantity");
-var currentPrice = document.querySelector("#intial-price");
+var currentPrice = document.querySelector("#current-price");
 var submitBtn = document.querySelector("#submit-btn");
 var Output = document.querySelector("#output");
 
-function calculateProfitandLoss(intialPrice,Quantity,currentPrice){
-    if(currentPrice < intialPrice){
-        var loss = (intialPrice - currentPrice)*Quantity;
-        var lossPercent = (loss/intialPrice)*100;
-        console.log("Sorry to say that you are in loss");
+submitBtn.addEventListener("click",calculator);
+
+function calculateProfitandLoss(IP,Q,CP){
+    if(CP < IP){
+        var loss = (IP - CP)*Q;
+        var lossPercent = (loss/IP)*100;
+        // console.log("Sorry to say that you are in loss");
+        var message = `Whoops!! Your loss is ${loss} and loss Percentage is ${lossPercent}% ☹️`;
+        showMessage(message);
+
     }
-    else if(currentPrice > intialPrice){
-        var profit = (currentPrice - intialPrice)*Quantity;
-        var profitPercent = (profit/intialPrice)*100;
-        console.log("Happy to say that you are in profit");
+    else if(CP > IP){
+        var profit = (CP - IP)*Q;
+        var profitPercent = (profit/IP)*100;
+        // console.log("Happy to say that you are in profit");
+        var message = `Yay!! Your Profit is ${profit} and profit Percentage is ${profitPercent}% 🥳`;
+        showMessage(message);
     }
     else {
-        console.log("No pain No gain and No gain No pain");
+        var message = `No pain No gain and no gain no pain 😉`;
+        showMessage(message);
     }
 }
 
-calculateProfitandLoss(10,10,10);
-calculateProfitandLoss(10,10,100);
-calculateProfitandLoss(100,10,10);
+function calculator(){
+    var IP = Number(intialPrice.value);
+    var Q = Number(Quantity.value);
+    var CP = Number(currentPrice.value);
+
+    calculateProfitandLoss(IP,Q,CP);
+}
+
+function showMessage(message){
+    Output.innerHTML = message;
+}
