@@ -9,16 +9,18 @@ submitBtn.addEventListener("click",calculator);
 function calculateProfitandLoss(IP,Q,CP){
     if(CP < IP){
         var loss = (IP - CP)*Q;
+        loss = showTillTwoDecimal(loss);
         var lossPercent = (loss/IP)*100;
-        // console.log("Sorry to say that you are in loss");
+        lossPercent = showTillTwoDecimal(lossPercent);
         var message = `Whoops!! Your loss is ${loss} and loss Percentage is ${lossPercent}% ☹️`;
         showMessage(message);
 
     }
     else if(CP > IP){
         var profit = (CP - IP)*Q;
+        profit = showTillTwoDecimal(profit);
         var profitPercent = (profit/IP)*100;
-        // console.log("Happy to say that you are in profit");
+        profitPercent = showTillTwoDecimal(profitPercent);
         var message = `Yay!! Your Profit is ${profit} and profit Percentage is ${profitPercent}% 🥳`;
         showMessage(message);
     }
@@ -32,10 +34,21 @@ function calculator(){
     var IP = Number(intialPrice.value);
     var Q = Number(Quantity.value);
     var CP = Number(currentPrice.value);
-
-    calculateProfitandLoss(IP,Q,CP);
+    if(IP == 0  || Q == 0 || CP == 0){
+        message = "Please Enter all required fields 🧐";
+        showMessage(message);
+    }
+    else{
+        calculateProfitandLoss(IP,Q,CP);
+    }
+    
 }
 
 function showMessage(message){
     Output.innerHTML = message;
+}
+
+
+function showTillTwoDecimal(x){
+    return Number.parseFloat(x).toFixed(2);
 }
