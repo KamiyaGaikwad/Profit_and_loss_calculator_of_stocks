@@ -10,25 +10,25 @@ function calculateProfitandLoss(IP,Q,CP){
     if(CP < IP){
         var loss = (IP - CP)*Q;
         loss = showTillTwoDecimal(loss);
-        var lossPercent = (loss/IP)*100;
+        var lossPercent = ((IP-CP)/IP)*100;
         lossPercent = showTillTwoDecimal(lossPercent);
         var message = `Whoops!! Your loss is ${loss} and loss Percentage is ${lossPercent}% ☹️`;
-        colorOfText = "red";
+        colorOfText = "#ef9a9a";
         showMessage(message,colorOfText);
 
     }
     else if(CP > IP){
         var profit = (CP - IP)*Q;
         profit = showTillTwoDecimal(profit);
-        var profitPercent = (profit/IP)*100;
+        var profitPercent = ((CP - IP)/IP)*100;
         profitPercent = showTillTwoDecimal(profitPercent);
         var message = `Yay!! Your Profit is ${profit} and profit Percentage is ${profitPercent}% 🥳`;
-        colorOfText = "green";
+        colorOfText = "#00e676";
         showMessage(message,colorOfText);
     }
     else {
         var message = `No pain No gain and no gain no pain 😉`;
-        colorOfText = "blue";
+        colorOfText = "#bbdefb";
         showMessage(message,colorOfText);
     }
 }
@@ -39,7 +39,7 @@ function calculator(){
     var CP = Number(currentPrice.value);
     if(IP == 0  || Q == 0 || CP == 0){
         message = "Please Enter all required fields 🧐";
-        colorOfText = "pink";
+        colorOfText = "#e1bee7";
         showMessage(message,colorOfText);
     }
     else{

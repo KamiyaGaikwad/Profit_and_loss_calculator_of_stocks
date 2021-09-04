@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+body {
+    text-align: center;
+    background-color: rgb(29, 35, 51);
+    color: #6EE7B7;
+    font-family: 'Besley', serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: large;
+}
+
+input {
+    padding:0.5rem;
+    width:11.5rem;
+    background-color: rgba(0, 0, 0, 0.603);
+    color:white;
+    border:1px solid black;
+    border-radius: 0.3rem;
+}
+
+button {
+    background-color: #6EE7B7;
+    color: rgb(71, 69, 69);
+    border:1px solid #6EE7B7;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-family: 'Merriweather', serif;
+}
+
+#output {
+    font-size: x-large;
+    font-family: 'Besley', serif;
+}
+
+h1 {
+    letter-spacing: 0.1rem;
+}
