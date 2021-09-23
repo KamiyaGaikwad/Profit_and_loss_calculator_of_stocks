@@ -42,6 +42,11 @@ function calculator(){
         colorOfText = "#e1bee7";
         showMessage(message,colorOfText);
     }
+    else if(IP < 0  || Q < 0 || CP < 0){
+        message = "Please Enter positive values only 😐";
+        colorOfText = "#e1bee7";
+        showMessage(message,colorOfText);
+    }
     else{
         calculateProfitandLoss(IP,Q,CP);
     }
